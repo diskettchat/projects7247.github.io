@@ -51,8 +51,6 @@ function publishPage(){
   window.open("https://"+web+"/publish/?html="+document.getElementById("html").value.replace(/\n/g,"%0A")+"&css="+document.getElementById("css").value.replace(/\n/g,"%0A")+"&js="+document.getElementById("js").value.replace(/\n/g,"%0A"), '_blank').focus();
 }
 
-//+"?css="+document.getElementById("css").value+"?js="+document.getElementById("js").value
-
 
 
 let params = new URLSearchParams(location.search);
