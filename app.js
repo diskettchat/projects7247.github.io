@@ -39,7 +39,7 @@ function compile() {
 
 
 function savePage(){
-  window.location.href="?html="+document.getElementById("html").value.replace(/\n/g,"%0A")+"&css="+document.getElementById("css").value.replace(/\n/g,"%0A")+"&js="+document.getElementById("js").value.replace(/\n/g,"%0A")
+  window.location.href="https://"+web+"?html="+document.getElementById("html").value.replace(/\n/g,"%0A")+"&css="+document.getElementById("css").value.replace(/\n/g,"%0A")+"&js="+document.getElementById("js").value.replace(/\n/g,"%0A")
   
   
   alert("Save the link!");
@@ -48,7 +48,7 @@ function savePage(){
 function publishPage(){
   
   
-  window.open(web+"/publish/?html="+document.getElementById("html").value.replace(/\n/g,"%0A")+"&css="+document.getElementById("css").value.replace(/\n/g,"%0A")+"&js="+document.getElementById("js").value.replace(/\n/g,"%0A"), '_blank').focus();
+  window.open("https://"+web+"/publish/?html="+document.getElementById("html").value.replace(/\n/g,"%0A")+"&css="+document.getElementById("css").value.replace(/\n/g,"%0A")+"&js="+document.getElementById("js").value.replace(/\n/g,"%0A"), '_blank').focus();
 }
 
 //+"?css="+document.getElementById("css").value+"?js="+document.getElementById("js").value
