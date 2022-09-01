@@ -47,7 +47,7 @@ function savePage(){
 function publishPage(){
   
   
-  window.open(web+"/publish?html="+document.getElementById("html").value.replace(/\n/g,"%0A")+"&css="+document.getElementById("css").value.replace(/\n/g,"%0A")+"&js="+document.getElementById("js").value.replace(/\n/g,"%0A"), '_blank').focus();
+  window.open(web+"/publish/?html="+document.getElementById("html").value.replace(/\n/g,"%0A")+"&css="+document.getElementById("css").value.replace(/\n/g,"%0A")+"&js="+document.getElementById("js").value.replace(/\n/g,"%0A"), '_blank').focus();
 }
 
 //+"?css="+document.getElementById("css").value+"?js="+document.getElementById("js").value
