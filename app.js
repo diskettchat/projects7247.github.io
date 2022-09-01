@@ -1,5 +1,5 @@
 
-var web="/home/chronos/u-193b94573f18e9ccbe3a66bcd2ce34a91db2c0f3/MyFiles/tx-basil/"
+var web="tx-basil.github.io"
 function compile() {
   var html = document.getElementById("html");
   var css = document.getElementById("css");
