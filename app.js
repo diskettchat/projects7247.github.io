@@ -6,6 +6,7 @@ function compile() {
   var js = document.getElementById("js");
   var code = document.getElementById("code").contentWindow.document;
 
+  
   code.open();
   code.writeln(
     html.value +
