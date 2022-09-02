@@ -1,0 +1,172 @@
+<html>
+  
+  <head>
+    <title>Discord UI</title>
+  </head>
+  
+  <body>
+    
+    
+    
+    <div id="sidebar">
+      <br>
+      <div id="sidebaricon">A</div>
+      <div id="sidebaricon">B</div>
+      <div id="sidebaricon">C</div>
+      <div id="sidebaricon">D</div>
+    </div>
+    
+    
+    <div class="main">
+      <div id="grid"></div>
+      
+    </div>
+    <div id="msgholder">
+      <input id="themsg" type="text"/>
+      <button id="send" onclick="newMessage()">Send</button>
+    </div>
+    
+    
+    
+    
+    <script>
+      function addText(txt){
+        var container = document.getElementById("grid");
+        var pfp = document.createElement("img");
+        let newMSG=document.createElement("span")
+        newMSG.id = "text"
+        newMSG.style="padding: 20px; margin-right: 200px; color:white;"
+        newMSG.innerHTML=txt
+        username=document.createElement("span")
+        username.id = "usrnm"
+        username.innerHTML=" User"
+        username.style="vertical-align:top; color:white;"
+        
+        pfp.setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo9eGFYCivWxzsYyDDOqgBlsgZr5IC5KgKkQ&usqp=CAU");
+        pfp.setAttribute("class", "pfp");
+        var cell = document.createElement("div");
+        cell.setAttribute("class","message");
+        
+        container.appendChild(cell);
+        cell.appendChild(pfp);
+        
+        cell.appendChild(username)
+        
+        cell.appendChild(newMSG)
+        container.append(document.createElement("br"))
+        
+      }
+    
+      function newMessage(){
+        addText(document.getElementById("themsg").value)
+      }
+      
+    </script>
+    
+    <style>
+      body{
+        background-color:#36393e;
+      }
+    
+      #sidebar{
+        height:100%;
+        width:70px;
+        color:white;
+        box-sizing: border-box;
+        position: fixed;
+        outline:10px solid #1e2124;
+        z-index : 1;
+        background-color:	#1e2124;
+        overflow-x: hidden;
+      }
+      
+      .pfp{
+        border-radius:100%;
+        width:60px;
+        margin-left:0px;
+        margin-top:20px;
+      }
+      
+      body{
+        font-family:sans;
+      }
+      
+      
+      
+
+      
+      
+      #sidebaricon{
+        font-family:sans;
+        height:68px;
+        width:68px;
+        border-radius:100px;
+        background-color: #282b30;
+        margin:auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition-delay:0s;
+        transition:0.25s ease-in-out;
+        
+        
+      }
+      
+      .main {
+        margin-left: 88px; /* Same as the width of the sidenav */
+        font-size: 25px; /* Increased text to enable scrolling */
+        padding: 10px 10px;
+        background-color:#424549;
+        height:85%;
+        border-radius:20px;
+      }
+      
+      #msgholder{
+        margin-top:10px;
+        margin-left: 88px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 10px 10px;
+        background-color:#424549;
+        height:7%;
+        border-radius:20px;
+      }
+      
+      #themsg{
+        font-size:30px;
+        width:91%;
+        background-color:#4e5257;
+        border:none;
+        border-radius:10px;
+        color:white;
+      }
+      
+      #send{
+        font-size:30px;
+        width:8%;
+        background-color:#4e5257;
+        border:none;
+        border-radius:10px;
+        color:white;
+      }
+      
+      #grid {
+        display: grid;
+        grid-template-columns:
+        auto auto;
+        
+      }
+      
+      #sidebaricon:hover{
+        border-radius:10px;
+        background-color:lightgray;
+        color:black;
+      }
+      
+      #sidebaricon+#sidebaricon{
+        margin-bottom:30px;
+        margin-top:30px;
+      }
+    </style>
+  </body>
+  
+</html>
