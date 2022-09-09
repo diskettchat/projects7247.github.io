@@ -1,0 +1,71 @@
+<h1>Disket Chat Messenger</h1>
+
+<div class="config">
+<br>
+<div class="text">Username:
+<div><input id=nickname placeholder="nickname" /></div>
+</div>
+<div class="text">Send a Message:
+<div><input id=input placeholder="message" /></div>
+</div>
+<br>
+</div>
+Chat:
+<div id=box></div>
+
+<script src=https://cdn.pubnub.com/sdk/javascript/pubnub.4.28.2.min.js></script>
+<script> (function() {
+        var pubnub = new PubNub({
+            publishKey: 'pub-c-ec96b6b0-7c46-4585-a368-a465e894a785',
+            subscribeKey: 'sub-c-11399786-25ec-442f-b2cf-37553c458d8b'
+        });
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var box = $('box'),
+            input = $('input'),
+            nickname = $('nickname'),
+            channel = '10chat-demo';
+        pubnub.addListener({
+            message: function(obj) {
+                box.innerHTML = ('' + obj.message).replace(/[<>]/g, '') + '<br>' + box.innerHTML
+            }
+        });
+        pubnub.subscribe({
+            channels: [channel]
+        });
+        input.addEventListener('keyup', function(e) {
+            if ((e.keyCode || e.charCode) === 13) {
+                pubnub.publish({
+                    channel: channel,
+                    message: nickname.value+": "+input.value,
+                    x: (input.value = '')
+                });
+            }
+        });
+    })();
+</script>
+<style>
+input{
+  border-radius:10px;
+  border:solid;
+  border-width:1px;
+}
+
+.config{
+  border-radius:20px;
+  background-color:darkgray;
+  width:300px;
+  
+}
+
+body{
+  background-color:black;
+  color:white;
+  font-family:monospace;
+}
+
+.text{
+  margin-left:20px;
+}
+</style>
